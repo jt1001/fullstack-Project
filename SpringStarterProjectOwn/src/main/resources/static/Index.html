@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage - JT's Drive</title>
+    <link rel="stylesheet" href="./Index.css" />
+  </head>
+
+  <body style="background-color: antiquewhite;"></body>
+    <h1 class="mainHeader">House of Hatchbacks</h1>
+    <h2 class="subheader">Stocklist</h2>
+  <body>
+      <input type="button" value="Add a new Car" onclick="addcarfield()">
+
+    <form method="post" action="localhost:8080/create">
+        <fieldset>
+        <legend ><h2>Add new car</h2></legend> 
+        <label for="carMake">Enter the Car Make name:</label>
+        <input type="text" id="carMake" name="carMake" placeholder="E.g Audi"><br><br>
+        <label for="modelName"> Model name:</label>
+        <input type="text" id="modelName" name="modelName" placeholder="E.g A3/1 series"><br><br>
+        <label for="makeYear"> Year of make:</label>
+        <input type="number" min="2010" max="2022"  id="makeYear" name="makeYear" ><br><br>
+        <label for="engineSize"> Engine size:</label>
+        <input type="text" id="engineSize" name="engineSize" placeholder="E.g 1.6"><br><br>
+        <label for="price"> Car price:</label>
+        <input type="text" id="price" name="price" placeholder=""><br><br>
+        <button type="submit">Add Car</button>
+        </fieldset>
+            </form>
+
+    <input type="button" onclick="getAll()">
+
+     <script src="./Index.js"></script>
+  </body>
+</html>
