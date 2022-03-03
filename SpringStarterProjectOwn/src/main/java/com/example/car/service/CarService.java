@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.example.car.domain.Car;
 import com.example.car.repo.CarRepo;
 
+
+
 @Service
-public class CarService {
+public class CarService implements ServiceInterface<Car>{
 
 	private CarRepo repo;
 
@@ -20,19 +22,19 @@ public class CarService {
 	}
 
 	// CREATE
-	public Car createCar(Car c) {
+	public Car create(Car c) {
 		Car created = this.repo.save(c); // INSERT INTO Car;
 		return created;
 
 	}
 
 	// READ
-	public List<Car> getAllCars() {
+	public List<Car> getAll() {
 		return this.repo.findAll();
 
 	}
 
-	public Car getCar(Integer id) { //FIND BY ID
+	public Car getOne(Integer id) { //FIND BY ID
 		Optional<Car> found = this.repo.findById(id);
 		return found.get();
 
@@ -65,7 +67,7 @@ public class CarService {
 	
 
 	// UPDATE
-	public Car replaceCar(Integer id, Car newCar) {
+	public Car replace(Integer id, Car newCar) {
 		Car existing = this.repo.findById(id).get();
 		existing.setCarMake(newCar.getCarMake()); /// MUST DO THE SAME FOR OTHER VARIABLES!!!!
 		existing.setModelName(newCar.getModelName());
@@ -78,7 +80,7 @@ public class CarService {
 	}
 
 	// DELETE
-	public void removeCar(@PathVariable Integer id) {
+	public void remove(@PathVariable Integer id) {
 		this.repo.deleteById(id); //DELETE FROM Car WHERE ID = " "
 		
 		//this.cars.remove(id.intValue()); // added intValue() so they know its an Integer and not a CAR!!!!!!!
