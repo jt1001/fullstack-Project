@@ -12,54 +12,100 @@ function addcarfield() {
 
 function showCars(id, carMake, modelName, makeYear, engineSize, price) {
   let refRow = document.createElement("tr");
-  let refTd1 = document.createElement("td");
-  let refTd2 = document.createElement("td");
-  let refTd3 = document.createElement("td");
-  let refTd4 = document.createElement("td");
-  let refTd5 = document.createElement("td");
-  let refTd6 = document.createElement("td");
+  let carInfo1 = document.createElement("td");
+  let carInfo2 = document.createElement("td");
+  let carInfo3 = document.createElement("td");
+  let carInfo4 = document.createElement("td");
+  let carInfo5 = document.createElement("td");
+  let carInfo6 = document.createElement("td");
 
-  refTd1.innerHTML = id;
-  refTd2.innerHTML = carMake;
-  refTd3.innerHTML = modelName;
-  refTd4.innerHTML = makeYear;
-  refTd5.innerHTML = engineSize;
-  refTd6.innerHTML = price;
+  carInfo1.innerHTML = id;
+  carInfo2.innerHTML = carMake;
+  carInfo3.innerHTML = modelName;
+  carInfo4.innerHTML = makeYear;
+  carInfo5.innerHTML = engineSize;
+  carInfo6.innerHTML = price;
 
-  refRow.appendChild(refTd1);
-  refRow.appendChild(refTd2);
-  refRow.appendChild(refTd3);
-  refRow.appendChild(refTd4);
-  refRow.appendChild(refTd5);
-  refRow.appendChild(refTd6);
+  refRow.appendChild(carInfo1);
+  refRow.appendChild(carInfo2);
+  refRow.appendChild(carInfo3);
+  refRow.appendChild(carInfo4);
+  refRow.appendChild(carInfo5);
+  refRow.appendChild(carInfo6);
 
-  refTable.appendChild(refRow);
-  document.body.appendChild(refTable);
+  allCarsTable.appendChild(refRow);
+  document.body.appendChild(allCarsTable);
 }
 
 function createCar() {
-  
-}
+  let CarMake = carMake.value;
+  let ModelName = modelName.value;
+  let MakeYear = makeYear.value;
+  let EngineSize = engineSize.value;
+  let Price = price.value;
 
-function viewAllCarsButton() { //NEEDS FIXING
-  if (viewCarsBtn.value == "View all cars in stock") {
-    carForm.style.visibility = "visible";
-    addform.value = "Hide Form";
+  if (CarMake == "") {
+    carMakeBoxErr.style.visibility = "visible";
   } else {
-    carForm.style.visibility = "hidden";
-    addform.value = "Add a new Car";
+    carMakeBoxErr.style.visibility = "hidden";
   }
+  if (ModelName == "") {
+    modelNameBoxErr.style.visibility = "visible";
+  } else {
+    modelNameBoxErr.style.visibility = "hidden";
+  }
+  if (MakeYear == "") {
+    makeYearBoxErr.style.visibility = "visible";
+  } else {
+    makeYearBoxErr.style.visibility = "hidden";
+  }
+  if (EngineSize == "") {
+    engineSizeBoxErr.style.visibility = "visible";
+  } else {
+    engineSizeBoxErr.style.visibility = "hidden";
+  }
+  if (Price == "") {
+    priceBoxErr.style.visibility = "visible";
+  } else {
+    priceBoxErr.style.visibility = "hidden";
+  }
+
+  if (CarMake != "" && ModelName !="" && MakeYear != "" && EngineSize != "" && Price != "") {
+    fetch(`http://localhost:8080/create`, {
+      method: 'post',
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(
+        {
+          "carMake": CarMake,
+          "modelName": ModelName,
+          "makeYear": MakeYear,
+          "engineSize": EngineSize,
+          "price": Price
+        }
+      )
+    })
+    .then(res => res.json())
+    .then((data) => console.log(`Request succeeded with JSON response ${data}`))
+    .catch((error) => console.log(`Request failed ${error}`));
+  }
+
+  
+
+
 }
 
-let refTable = "";
+
+let allCarsTable = "";
 function allcars() {
   //working and shows data on index
   let refPromise = fetch(`http://localhost:8080/getAll`);
   refPromise.then(function (response) {
     let refResponsePromise = response.json();
     refResponsePromise.then(function (data) {
-      refTable = document.createElement("table");
-      refTable.border = 10;
+      allCarsTable = document.createElement("table");
+      allCarsTable.border = 10;
 
       for (let i = 0; i < data.length; i++) {
         showCars(
@@ -74,22 +120,34 @@ function allcars() {
     });
   });
 }
+function viewAllCarsButton() { //NEEDS FIXING
+  if (viewAllCarsBtn.value == "View all cars in stock") {
+    allcars();
+    viewAllCarsBtn.value = "Hide all cars in stock";
+  } else {
+    allCarsTable.style.visibility = "hidden";
+    viewAllCarsBtn.value = "View all cars in stock";
+  }
+}
 
-// function allcars(){ //working and shows data on index
-//     let refPromise=fetch(`http://localhost:8080/getAll`)
-//     refPromise.then(
-//         function(response) {
-//             let refResponsePromise=response.json()
-//             refResponsePromise.then(function(data){
+function addNewCar() {
+  let refPromise = fetch(`localhost:8080/create`);
+  refPromise.then(function (response) {
+    let refResponsePromise = response.json();
+    refResponsePromise.then(function (data) {
+      allCarsTable = document.createElement("table");
+      allCarsTable.border = 10;
 
-//                 for(let i=0;i<data.length;i++){
-//                     document.createElement
-
-//                     let refDiv=document.createElement("div")
-//                     refDiv.innerHTML="ID: "+ data[i].id + "Car Make: "+data[i].carMake + "Model: " + data[i].modelName + "Year: " + data[i].makeYear + "Engine Size: " + data[i].engineSize + "Price: " + data[i].price
-//                     document.body.appendChild(refDiv)
-//                 }
-//             })
-//         }
-//     )
-// }
+      for (let i = 0; i < data.length; i++) {
+        showCars(
+          data[i].id,
+          data[i].carMake,
+          data[i].modelName,
+          data[i].makeYear,
+          data[i].engineSize,
+          data[i].price
+        );
+      }
+    });
+  });
+}
