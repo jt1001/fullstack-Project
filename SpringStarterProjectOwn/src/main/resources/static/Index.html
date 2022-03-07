@@ -4,40 +4,63 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JTs app</title>
+    <title>HoH App</title>
+    <link rel="stylesheet" href="./Index.css" />
   </head>
 
-  <body style="background-color: antiquewhite;"></body>
-    <h1 class="mainHeader">House of Hatchbacks</h1>
-    <h2 class="subheader">Stocklist</h2>
+  <body style="background-color: antiquewhite"></body>
+  <h1 class="mainHeader">House of Hatchbacks</h1>
+  <h2 class="subheader">Stocklist</h2>
   <body>
-      <input type="button" value="Add a new Car" onclick="addcarfield()">
+    <input
+      id="addform"
+      type="button"
+      value="Add a new Car"
+      onclick="addcarfield()"
+    />
 
-    <form method="post" action="http://localhost:8080/create">
-        <fieldset>
-        <legend ><h2>Add new car</h2></legend> 
-        <label for="carMake">Enter the Car Make name:</label>
-        <input type="text" id="carMake" name="carMake" placeholder="E.g Audi"><br><br>
-        <label for="modelName"> Model name:</label>
-        <input type="text" id="modelName" name="modelName" placeholder="E.g A3/1 series"><br><br>
-        <label for="makeYear"> Year of make:</label>
-        <input type="number" min="2010" max="2022"  id="makeYear" name="makeYear" ><br><br>
-        <label for="engineSize"> Engine size:</label>
-        <input type="text" id="engineSize" name="engineSize" placeholder="E.g 1.6"><br><br>
-        <label for="price"> Car price:</label>
-        <input type="text" id="price" name="price" placeholder=""><br><br>
-        <button type="submit">Add Car</button>
-        </fieldset>
-        <br>
-        <input type="button" value="View all cars" onclick="allcars()">
-        <div id="allcarsData"></div>
-       <p>test1</p>
+    <div id="carForm" style="visibility: hidden">
+      Car Make Name: <input type="text" id="carMake" /><span
+        id="carMakeBoxErr"
+        style="color: red; visibility: hidden"
+        >***Enter the Car Make Name!***</span
+      >
+      <br />
+      Model Name: <input type="text" id="modelName" />
+      <span id="modelNameBoxErr" style="color: red; visibility: hidden"
+        >***Enter the Model Name!***</span
+      >
+      <br />
+      Year of Make: <input type="text" id="makeYear" /><span
+        id="makeYearBoxErr"
+        style="color: red; visibility: hidden"
+        >***Enter the Year!***</span
+      >
+      <br />
+      Engine Size: <input type="text" id="enginesize" />
+      <span id="engineSizeBoxErr" style="color: red; visibility: hidden"
+        >***Enter the Engine Size!***</span
+      >
+      <br />
+      Price: <input type="text" id="price" /><span
+        id="priceBoxErr"
+        style="color: red; visibility: hidden"
+        >***Enter the Price!***</span
+      >
+      <br />
 
-       <table class="table">
-           <thead></thead>
-           <tbody></tbody>
-       </table>
-           
-     <script src="./Index.js"></script>
+      <input type="Button" value="Add Car" onclick="createCar()" />
+    </div>
+
+    <input
+      id="viewCarsBtn"
+      type="button"
+      value="View all cars in stock"
+      onclick="allcars()"
+    />
+    <div id="allcarsData"></div>
+    <p>test</p>
+
+    <script src="./Index.js"></script>
   </body>
 </html>
