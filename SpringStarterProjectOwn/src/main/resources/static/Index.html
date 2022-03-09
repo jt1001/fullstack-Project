@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./Index.css" />
   </head>
 
-  <body style="background-color: antiquewhite"></body>
+  <body onload="allcars()" style="background-color: antiquewhite"></body>
   <h1 class="mainHeader">House of Hatchbacks</h1>
   <h2 class="subheader">Stocklist</h2>
   <body>
@@ -19,8 +19,19 @@
       onclick="addcarfield()"
     />
 
-    <div id="carForm" style="visibility: hidden">
-      Car Make Name: <input type="text" id="carMake" /><span
+    <!-- <fieldset id="carForm1" >
+      <legend>Add new Car</legend>
+      <label for="fname">First name</label>
+      <input id="fname" type="text"> <br>
+      <label for="sname">First name</label>
+      <input id="sname" type="text"> <br>
+      <label for="age">Age</label>
+      <input id="age" type="number">
+  </fieldset> -->
+
+    <div class="carForm" id="carForm" style="visibility: hidden">
+      Car Make Name:
+      <input type="text" placeholder="Audi etc" id="carMake" /><span
         id="carMakeBoxErr"
         style="color: red; visibility: hidden"
         >***Enter the Car Make Name!***</span
@@ -55,11 +66,14 @@
     <input
       id="viewAllCarsBtn"
       type="button"
-      value="View all cars in stock"
+      value="Hide all cars in stock"
       onclick="viewAllCarsButton()"
     />
-    <p>test</p>
+    <input type="button" id="deleteCarBtn" value="Delete Car" onclick="deleteCarField()">
+    <input type="text" id="deleteCarBox" style="width: 50px;visibility: hidden;">
+    <input type="button" id="confirmDelete" value="Confirm delete!" style="visibility: hidden;" onclick="deleteCar()">
+   
 
-    <script src="./Index.js" ></script>
+    <script src="./Index.js"></script>
   </body>
 </html>
