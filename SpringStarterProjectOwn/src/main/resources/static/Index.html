@@ -7,130 +7,194 @@
     <title>HoH App</title>
     <link rel="stylesheet" href="./Index.css" />
   </head>
-
-  <body onload="allcars()" style="background-color: rgb(203, 247, 223)"></body>
-  <h1 class="mainHeader">House of Hatchbacks</h1>
-  <h2 class="subheader">Stocklist</h2>
-  <body>
+  <body onload="allcars()" class="background">
+    <h1 class="mainHeader">House of Hatchbacks</h1>
+   
     <input
     class="viewAllCarsBtn"
-      id="viewAllCarsBtn"
-      type="button"
-      value="Hide all cars in stock"
-      onclick="viewAllCarsButton()"
-    /> <br>
-    <input type="button" id="refreshBtn" value="Refresh" onclick="refresh()"> <br>
-    <input
-      id="addform"
-      type="button"
-      value="Add a new Car"
-      onclick="addcarfield()"
-      class="addNewCarBtn"
-    /> <br>
-    <div  class="carForm" id="carForm" style="display: none">
-      Car Make Name:
-      <input type="text" placeholder="Audi etc" id="carMake" /><span
-        id="carMakeBoxErr"
-        style="color: red; visibility: hidden"
-        >***Enter the Car Make Name!***</span
-      >
+    id="viewAllCarsBtn"
+    type="button"
+    value="Hide all cars in stock"
+    onclick="viewAllCarsButton()"
+  />
+    <div  id="mydata">
+       <div class="tableHeader" id="tableHeader" style="display: inline"><b>Current Stock</b> </div> 
+      <table class="myTableData" id="myTableData"html>
+          <tr>
+              <td><b>Car ID</b></td>
+              <td><b>Car Make</b></td>
+              <td><b>Model Name</b></td>
+              <td><b>Year of Make</b></td>
+              <td><b>Engine Size</b></td>
+              <td><b>Price</b></td>
+          </tr>
+      </table>
+      </div>
+      
+    <body>
+      <input
+        class="refreshBtn"
+        type="button"
+        id="refreshBtn"
+        value="Refresh"
+        onclick="refresh()"
+        style="display: block"
+      />
+      <input
+        id="addform"
+        type="button"
+        value="Add a new Car"
+        onclick="addcarfield()"
+        class="addNewCarBtn"
+      />
       <br />
-      Model Name: <input type="text" id="modelName"/>
-      <span id="modelNameBoxErr" style="color: red; visibility: hidden"
-        >***Enter the Model Name!***</span
-      >
-      <br />
-      <label for="makeYear">Year of Make:</label>
-      <select name="makeYears" id="makeYear">
-        <option value=""></option>
-        <option value="2012">2012</option>
-        <option value="2013">2013</option>
-        <option value="2014">2014</option>
-        <option value="2015">2015</option>
-        <option value="2016">2016</option>
-        <option value="2017">2017</option>
-        <option value="2018">2018</option>
-        <option value="2019">2019</option>
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-        <option value="2022">2022</option>
-      </select><span
-      id="makeYearBoxErr"
-      style="color: red; visibility: hidden"
-      >***Enter the Year!***</span>
-      <br />
-      Engine Size: <input type="text" id="engineSize" />
-      <span id="engineSizeBoxErr" style="color: red; visibility: hidden"
-        >***Enter the Engine Size!***</span
-      >
-      <br />
-      Price: <input type="text" id="price" /><span
-        id="priceBoxErr"
-        style="color: red; visibility: hidden"
-        >***Enter the Price!***</span
+      <div class="carForm" id="carForm" style="display: none">
+        Car Make Name:
+        <input type="text" placeholder="Audi etc" id="carMake" /><span
+          id="carMakeBoxErr"
+          style="color: red; visibility: hidden"
+          >***Enter the Car Make Name!***</span
+        >
+        <br />
+        Model Name: <input type="text" id="modelName" />
+        <span id="modelNameBoxErr" style="color: red; visibility: hidden"
+          >***Enter the Model Name!***</span
+        >
+        <br />
+        <label for="makeYear">Year of Make:</label>
+        <select name="makeYears" id="makeYear">
+          <option value=""></option>
+          <option value="2012">2012</option>
+          <option value="2013">2013</option>
+          <option value="2014">2014</option>
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option></select
+        ><span id="makeYearBoxErr" style="color: red; visibility: hidden"
+          >***Enter the Year!***</span
+        >
+        <br />
+        Engine Size: <input type="text" id="engineSize" />
+        <span id="engineSizeBoxErr" style="color: red; visibility: hidden"
+          >***Enter the Engine Size!***</span
+        >
+        <br />
+        Price: <input type="text" id="price" /><span
+          id="priceBoxErr"
+          style="color: red; visibility: hidden"
+          >***Enter the Price!***</span
+        >
+        <br />
+
+        <input class="addCarConfirm" type="Button" value="Add Car" onclick="createCar()" />
+      </div>
+
+      <input
+        class="updateBtn"
+        type="button"
+        id="updateCarBtn"
+        value="Update Car"
+        onclick="updateCarField()"
+      />
+      <input
+        type="text"
+        id="updateCarBox"
+        placeholder="Enter Car ID you wish to update"
+        style="width: 190px; display: none"
+      />
+      <input
+        class="confirmUpdate"
+        type="button"
+        id="confirmUpdate"
+        value="Confirm car ID"
+        style="display: none"
+        onclick="getUpdateCarDetails()"
+      />
+
+      <span id="missingIdError" style="color: red; display: none"
+        >***ID entered does not exist! Please enter a correct ID!***</span
       >
       <br />
 
-      <input type="Button" value="Add Car" onclick="createCar()" />
-    </div>
+      <div class="updateCarForm" id="updateCarForm" style="display: none">
+        Car Make Name:
+        <input type="text" id="carMakeUp" /><span
+          id="carMakeBoxErrUp"
+          style="color: red; visibility: hidden"
+          >***Enter the Car Make Name!***</span
+        >
+        <br />
+        Model Name: <input type="text" id="modelNameUp" />
+        <span id="modelNameBoxErrUp" style="color: red; visibility: hidden"
+          >***Enter the Model Name!***</span
+        >
+        <br />
+        <label for="makeYear">Year of Make:</label>
+        <select name="makeYears" id="makeYearUp">
+          <option value=""></option>
+          <option value="2012">2012</option>
+          <option value="2013">2013</option>
+          <option value="2014">2014</option>
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option></select
+        ><span id="makeYearBoxErrUp" style="color: red; visibility: hidden"
+          >***Enter the Year!***</span
+        >
+        <br />
+        Engine Size: <input type="text" id="engineSizeUp" />
+        <span id="engineSizeBoxErrUp" style="color: red; visibility: hidden"
+          >***Enter the Engine Size!***</span
+        >
+        <br />
+        Price: <input type="text" id="priceUp" /><span
+          id="priceBoxErrUp"
+          style="color: red; visibility: hidden"
+          >***Enter the Price!***</span
+        >
+        <br />
 
-    <input class="updateBtn" type="button" id="updateCarBtn" value="Update Car" onclick="updateCarField()">
-    <input type="text" id="updateCarBox" placeholder="Enter Car ID you wish to update" style="width: 190px;display: none;">
-    <input class="confirmUpdate" type="button" id="confirmUpdate" value="Confirm car ID" style="display: none;" onclick="getUpdateCarDetails()">
-    
-    <span id="missingIdError" style="color: red;display: none">***ID entered does not exist! Please enter a correct ID!***</span> <br>
-    
-    <div  class="updateCarForm" id="updateCarForm" style="display: none">
-      Car Make Name:
-      <input type="text" id="carMakeUp" /><span
-        id="carMakeBoxErrUp"
-        style="color: red; visibility: hidden"
-        >***Enter the Car Make Name!***</span
-      >
-      <br />
-      Model Name: <input type="text" id="modelNameUp"/>
-      <span id="modelNameBoxErrUp" style="color: red; visibility: hidden"
-        >***Enter the Model Name!***</span
-      >
-      <br />
-      <label for="makeYear">Year of Make:</label>
-      <select name="makeYears" id="makeYearUp">
-        <option value=""></option>
-        <option value="2012">2012</option>
-        <option value="2013">2013</option>
-        <option value="2014">2014</option>
-        <option value="2015">2015</option>
-        <option value="2016">2016</option>
-        <option value="2017">2017</option>
-        <option value="2018">2018</option>
-        <option value="2019">2019</option>
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-        <option value="2022">2022</option>
-      </select><span
-      id="makeYearBoxErrUp"
-      style="color: red; visibility: hidden"
-      >***Enter the Year!***</span>
-      <br />
-      Engine Size: <input type="text" id="engineSizeUp" />
-      <span id="engineSizeBoxErrUp" style="color: red; visibility: hidden"
-        >***Enter the Engine Size!***</span
-      >
-      <br />
-      Price: <input type="text" id="priceUp" /><span
-        id="priceBoxErrUp"
-        style="color: red; visibility: hidden"
-        >***Enter the Price!***</span
-      >
-      <br />
+        <input
+          type="Button"
+          id="updateCarBtnConf"
+          value="Update Car"
+          onclick="UpdateCar()"
+        />
+        <br />
+      </div>
+      <input
+        class="deleteBtn"
+        type="button"
+        id="deleteCarBtn"
+        value="Delete Car"
+        onclick="deleteCarField()"
+      />
+      <input
+        type="text"
+        id="deleteCarBox"
+        placeholder="Enter car ID"
+        style="width: 70px; visibility: hidden"
+      />
+      <input
+        class="confirmDelete"
+        type="button"
+        id="confirmDelete"
+        value="Confirm delete!"
+        style="visibility: hidden"
+        onclick="deleteCar()"
+      />
 
-      <input type="Button" id="updateCarBtnConf" value="Update Car" onclick="UpdateCar()" /> <br>
-    </div>
-    <input class="deleteBtn" type="button" id="deleteCarBtn" value="Delete Car" onclick="deleteCarField()">
-    <input type="text" id="deleteCarBox" placeholder="Enter car ID" style="width: 70px;visibility: hidden;">
-    <input class="confirmDelete" type="button" id="confirmDelete" value="Confirm delete!" style="visibility: hidden;" onclick="deleteCar()">
-
-    <!-- <fieldset id="carForm1" >
+      <!-- <fieldset id="carForm1" >
       <legend>Add new Car</legend>
       <label for="fname">First name</label>
       <input id="fname" type="text"> <br>
@@ -140,11 +204,7 @@
       <input id="age" type="number">
   </fieldset> -->
 
-    
-    
-    
-   
-
-    <script src="./Index.js"></script>
+      <script src="./Index.js"></script>
+    </body>
   </body>
 </html>
