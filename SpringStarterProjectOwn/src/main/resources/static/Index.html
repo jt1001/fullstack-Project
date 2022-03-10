@@ -19,6 +19,7 @@
       value="Hide all cars in stock"
       onclick="viewAllCarsButton()"
     /> <br>
+    <input type="button" id="refreshBtn" value="Refresh" onclick="refresh()"> <br>
     <input
       id="addform"
       type="button"
@@ -123,7 +124,7 @@
       >
       <br />
 
-      <input type="Button" value="Update Car" onclick="UpdateCar()" />
+      <input type="Button" id="updateCarBtnConf" value="Update Car" onclick="UpdateCar()" /> <br>
     </div>
     <input class="deleteBtn" type="button" id="deleteCarBtn" value="Delete Car" onclick="deleteCarField()">
     <input type="text" id="deleteCarBox" placeholder="Enter car ID" style="width: 70px;visibility: hidden;">

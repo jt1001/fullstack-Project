@@ -132,6 +132,10 @@ function viewAllCarsButton() {
   }
 }
 
+function refresh(){
+  window.location.reload("Refresh")
+}
+
 // function showCarToUpdate(id, carMake, modelName, makeYear, engineSize, price) {
 //   var CarID = document.createElement("input");
 //   CarID.setAttribute("type", "text");
@@ -215,6 +219,7 @@ function getUpdateCarDetails() {
     if (response.status != "200") {
       missingIdError.style.display = "inline";
     } if (response.status == "200"){
+      updateCarBtn.value = "Cancel";
       missingIdError.style.display = "none";
       updateCarForm.style.display = "inline";
       let refResponsePromise = response.json();
