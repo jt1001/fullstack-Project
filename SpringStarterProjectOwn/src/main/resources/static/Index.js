@@ -70,6 +70,7 @@ function createCar() {
 }
 
 function showCars(id, carMake, modelName, makeYear, engineSize, price) {
+  var header = document.createElement("header");
   let refRow = document.createElement("tr");
   let carInfo1 = document.createElement("td");
   let carInfo2 = document.createElement("td");
@@ -92,8 +93,7 @@ function showCars(id, carMake, modelName, makeYear, engineSize, price) {
   refRow.appendChild(carInfo5);
   refRow.appendChild(carInfo6);
 
-  allCarsTable.appendChild(refRow);
-  document.body.appendChild(allCarsTable);
+  myTableData.appendChild(refRow);
 }
 
 let allCarsTable = "";
@@ -104,9 +104,7 @@ function allcars() {
     let refResponsePromise = response.json();
     refResponsePromise.then(function (data) {
       allCarsTable = document.createElement("table");
-      allCarsTable.border = 3;
-      allCarsTable.style =
-        "margin-left:auto; margin-right:auto; margin-top:100;";
+      allCarsTable.setAttribute("class", "allCarsTable");
 
       for (let i = 0; i < data.length; i++) {
         showCars(
@@ -124,16 +122,20 @@ function allcars() {
 
 function viewAllCarsButton() {
   if (viewAllCarsBtn.value == "Hide all cars in stock") {
-    allCarsTable.style.visibility = "hidden";
+    myTableData.style.display = "none";
     viewAllCarsBtn.value = "View all cars in stock";
+    tableHeader.style.display = "none";
+    refreshBtn.style.display = "none";
   } else {
-    allCarsTable.style.visibility = "visible";
+    myTableData.style.display = "block";
     viewAllCarsBtn.value = "Hide all cars in stock";
+    tableHeader.style.display = "block"
+    refreshBtn.style.display = "block"
   }
 }
 
 function refresh(){
-  window.location.reload("Refresh")
+  window.location.reload()
 }
 
 // function showCarToUpdate(id, carMake, modelName, makeYear, engineSize, price) {
