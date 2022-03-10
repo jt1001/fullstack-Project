@@ -18,6 +18,16 @@ background: linear-gradient(to right, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, F
     font-size: 24px;
 }
 
+.myData{
+    top: 30%;
+    left: 35%;
+    width: 80em;
+    height: 18em;
+    margin-top: -9em;
+    margin-left: -15em;
+    position: fixed;
+}
+
 .myTableData td{
     font-size: 24px;
     border-spacing: 5px;
@@ -83,7 +93,7 @@ background: linear-gradient(to right, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, F
     border-radius: 6px;
     box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
     box-sizing: border-box;
-    color: #fff;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     display: inline-block;
     font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
@@ -91,7 +101,6 @@ background: linear-gradient(to right, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, F
     font-weight: 600;
     line-height: 10px;
     padding: 6px 16px;
-    position: relative;
     text-align: center;
     text-decoration: none;
     user-select: none;

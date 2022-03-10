@@ -346,7 +346,7 @@ function deleteCarField() {
 }
 
 function deleteCar() {
-  let id = deleteCarBox.value;
+  let id = deleteCarBox.value;s
   fetch(`http://localhost:8080/remove/` + id, {
     method: "delete",
   })
