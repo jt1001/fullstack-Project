@@ -17,8 +17,16 @@
     value="Hide all cars in stock"
     onclick="viewAllCarsButton()"
   />
-    <div  id="mydata">
+    <div class="myData"  id="mydata">
        <div class="tableHeader" id="tableHeader" style="display: inline"><b>Current Stock</b> </div> 
+       <input
+          class="refreshBtn"
+          type="button"
+          id="refreshBtn"
+          value="Refresh"
+          onclick="refresh()"
+          style="display: inline;"
+        />
       <table class="myTableData" id="myTableData"html>
           <tr>
               <td><b>Car ID</b></td>
@@ -29,17 +37,12 @@
               <td><b>Price</b></td>
           </tr>
       </table>
+      <body>
+        
       </div>
+      <br>
       
-    <body>
-      <input
-        class="refreshBtn"
-        type="button"
-        id="refreshBtn"
-        value="Refresh"
-        onclick="refresh()"
-        style="display: block"
-      />
+    
       <input
         id="addform"
         type="button"
