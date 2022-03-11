@@ -345,8 +345,10 @@ function deleteCarField() {
   }
 }
 
+//missingDeleteIdError.style.visibility = "visible";
+
 function deleteCar() {
-  let id = deleteCarBox.value;s
+  let id = deleteCarBox.value;
   fetch(`http://localhost:8080/remove/` + id, {
     method: "delete",
   })
@@ -355,5 +357,6 @@ function deleteCar() {
     })
     .catch((error) => {
       console.log("Unsuccessful dude");
+
     });
 }

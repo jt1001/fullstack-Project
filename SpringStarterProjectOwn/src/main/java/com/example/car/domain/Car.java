@@ -8,23 +8,17 @@ import javax.persistence.Id;
 
 @Entity
 public class Car {
-
-	@Id // PRIMARY KEY ALWAYS REQUIRED!! used for db
+	@Id // PRIMARY KEY ALWAYS REQUIRED!! used for db table id field
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO INCREMENT ALWAYS REQUIRED!!!!
 	private Integer id;
-
 	@Column(nullable = false)
 	private String carMake;
-
 	@Column(unique = true, nullable = false) // MAKES IT NOT EMPTY & UNIQUE!
 	private String modelName;
-
 	@Column(nullable = false)
 	private Integer makeYear;
-
 	@Column(nullable = false)
 	private Double engineSize;
-	
 	@Column(nullable = false)
 	private Double price;
 
