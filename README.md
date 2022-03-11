@@ -1,4 +1,5 @@
-# fullstack-Project: Car Stock management application for House of Hatchbacks company.
+# fullstack-Project: 
+A Car Stock management application for House of Hatchbacks company.
 
 presentation: https://docs.google.com/presentation/d/1bptnSd6grv-NkFieZMUq1NDeguCPzuf5VGL3lTtJAeE/edit#slide=id.g119a36680ec_0_53
 Jira Board: https://jtlana.atlassian.net/jira/software/projects/FSP/boards/3/roadmap
