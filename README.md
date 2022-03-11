@@ -59,4 +59,5 @@ Over testing coverage came up to 94.1%
 
 # Front-End and Testing:
 The front end is the user interface which was built using HTML, JavaScript and CSS.
-HTML and CSS was used to cerate the design of the user interface while Javascript was used to create the functionality of the interface which included allowing the interface to interact with the backend.
+
+HTML and CSS was used to create the design of the user interface while Javascript was used to create the functionality of the interface which included allowing the interface to interact with the backend.
