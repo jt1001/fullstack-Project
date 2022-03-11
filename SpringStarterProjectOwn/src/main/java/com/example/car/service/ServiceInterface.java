@@ -4,14 +4,10 @@ import java.util.List;
 
 public interface ServiceInterface<T> {
 	
-	T create(T t);
-	
-	List<T> getAll();
-	
-	T getOne(Integer id);
-	
-	T replace(Integer id, T t);
-	
-	void remove(Integer id);
+	T create(T t); //CREATE
+	List<T> getAll(); //READALL
+	T getOne(Integer id); //GetByID
+	T replace(Integer id, T t); //UpdateByID
+	void remove(Integer id); //DELETE
 
 }
