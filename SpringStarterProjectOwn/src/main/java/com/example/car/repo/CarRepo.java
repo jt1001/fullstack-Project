@@ -10,8 +10,6 @@ import com.example.car.domain.Car;
 @Repository
 public interface CarRepo extends JpaRepository<Car, Integer>{
 	
-	//SRPING WILL AUTO-GENERATE ALL OF THE BASIC CRUD FUNCTIONALITY
-	
 	List<Car> findByCarMakeIgnoreCase(String carMake); //FIND BY CAR MAKE NAME
 	
 	List<Car> findByModelNameIgnoreCase(String modelName);
@@ -23,3 +21,4 @@ public interface CarRepo extends JpaRepository<Car, Integer>{
 	List<Car> findByPrice(Double price);
 
 }
+//SRPING WILL AUTO-GENERATE ALL OF THE BASIC CRUD FUNCTIONALITY

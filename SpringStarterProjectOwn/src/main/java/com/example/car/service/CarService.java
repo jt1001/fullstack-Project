@@ -12,26 +12,20 @@ import com.example.car.repo.CarRepo;
 
 @Service
 public class CarService implements ServiceInterface<Car>{
-
 	private CarRepo repo;
-
 	@Autowired
 	public CarService(CarRepo repo) {
 		super();
 		this.repo = repo;
 	}
-
 	// CREATE
 	public Car create(Car c) {
 		Car created = this.repo.save(c); // INSERT INTO Car;
 		return created;
-
 	}
-
 	// READ
 	public List<Car> getAll() {
 		return this.repo.findAll();
-
 	}
 
 	public Car getOne(Integer id) { //FIND BY ID
