@@ -122,6 +122,17 @@ public class CarControllerTest {
 
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
+	
+	@Test
+	void getByPrice() throws Exception{
+		RequestBuilder req = get("/getByPrice/17500.00");
+		List<Car> testCarEngineSize = List.of(new Car(1, "Audi", "A3", 2017, 2.0, 17500.00));
+		String testCarEngineSizeJson = this.mapper.writeValueAsString(testCarEngineSize);
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkBody = content().json(testCarEngineSizeJson);
+
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
 
 	@Test
 	void updatebyId() throws Exception {

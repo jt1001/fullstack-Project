@@ -9,23 +9,22 @@
   </head>
   <body onload="allcars()" class="background">
     <h1 class="mainHeader">House of Hatchbacks</h1>
-   
     <input
     class="viewAllCarsBtn"
     id="viewAllCarsBtn"
     type="button"
     value="Hide all cars in stock"
     onclick="viewAllCarsButton()"
-  />
+  /> <br>
     <div class="myData"  id="mydata">
-       <div class="tableHeader" id="tableHeader" style="display: inline"><b>Current Stock</b> </div> 
+       <div class="tableHeader" id="tableHeader" style="display: inline"><b>Current Stock</b> </div>
        <input
           class="refreshBtn"
           type="button"
           id="refreshBtn"
           value="Refresh"
           onclick="refresh()"
-          style="display: inline;"
+          style="display:block;"
         />
       <table class="myTableData" id="myTableData"html>
           <tr>
@@ -38,11 +37,8 @@
           </tr>
       </table>
       <body>
-        
       </div>
       <br>
-      
-    
       <input
         id="addform"
         type="button"
@@ -93,10 +89,11 @@
           >***Enter the Price!***</span
         >
         <br />
-
         <input class="addCarConfirm" type="Button" value="Add Car" onclick="createCar()" />
       </div>
-
+      <span id="missingIdError" style="color: red; display: none"
+        > <b>***ID entered does not exist! Please enter a correct ID!***</b> </span >
+        <br>
       <input
         class="updateBtn"
         type="button"
@@ -117,13 +114,8 @@
         value="Confirm car ID"
         style="display: none"
         onclick="getUpdateCarDetails()"
-      />
-
-      <span id="missingIdError" style="color: red; display: none"
-        >***ID entered does not exist! Please enter a correct ID!***</span
-      >
+      />      
       <br />
-
       <div class="updateCarForm" id="updateCarForm" style="display: none">
         Car Make Name:
         <input type="text" id="carMakeUp" /><span
@@ -166,7 +158,6 @@
           >***Enter the Price!***</span
         >
         <br />
-
         <input
           type="Button"
           id="updateCarBtnConf"
@@ -175,6 +166,9 @@
         />
         <br />
       </div>
+      <br>
+      <span id="missingDeleteIdError" style="color: red; display: none"
+      > <b>***ID entered does not exist! Please enter a correct ID!***</b> </span >
       <input
         class="deleteBtn"
         type="button"
@@ -196,18 +190,7 @@
         style="visibility: hidden"
         onclick="deleteCar()"
       />
-
-      <!-- <fieldset id="carForm1" >
-      <legend>Add new Car</legend>
-      <label for="fname">First name</label>
-      <input id="fname" type="text"> <br>
-      <label for="sname">First name</label>
-      <input id="sname" type="text"> <br>
-      <label for="age">Age</label>
-      <input id="age" type="number">
-  </fieldset> -->
-
-      <script src="./Index.js"></script>
+       <script src="./Index.js"></script>
     </body>
   </body>
 </html>

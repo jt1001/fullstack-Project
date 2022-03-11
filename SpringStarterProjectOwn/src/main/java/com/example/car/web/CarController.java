@@ -34,16 +34,14 @@ public class CarController {
 
 	}
 
-	@PostMapping("/create") // to create! //pulls the parameter from the body of the request //in postman
-							// you can use = localhost:8080/create
+	@PostMapping("/create") // to create! //pulls the parameter from the body of the request //in postman		// you can use = localhost:8080/create
 	public ResponseEntity<Car> createCar(@RequestBody Car c) {
 		Car created = this.service.create(c);
 		ResponseEntity<Car> response = new ResponseEntity<Car>(created, HttpStatus.CREATED); // 201 = CREATED code
 		return response;
 	}
 
-	@GetMapping("/getAll") // This will return list of all CARS!!!!!!!!!!!!!!!! // you can use =
-							// localhost:8080/getAll
+	@GetMapping("/getAll") // This will return list of all CARS!!!!!!!!!!!!!!!! // you can use =						// localhost:8080/getAll
 	public ResponseEntity<List<Car>> getAllCars() {
 		return ResponseEntity.ok(this.service.getAll()); // 200 - Status code for OK.
 	}
@@ -89,7 +87,7 @@ public class CarController {
 		Car body = this.service.replace(id, newCar);
 		ResponseEntity<Car> response = new ResponseEntity<Car>(body, HttpStatus.ACCEPTED);
 		return response;
-	}
+	} 
 
 	@DeleteMapping("/remove/{id}") // 204 - STATUS CODE FOR NO CONTENT
 	public ResponseEntity<?> removeCar(@PathVariable Integer id) {

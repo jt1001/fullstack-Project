@@ -1,12 +1,16 @@
 .mainHeader{
     text-align: left;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    text-shadow: 0 0 5px #A5F1FF, 0 0 10px #000000,
+             0 0 20px #A5F1FF, 0 0 30px #A5F1FF,
+             0 0 40px #A5F1FF;
 }
 
 .background{
-    background: #00416A;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #E4E5E6, #00416A);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #E0EAFC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
@@ -19,21 +23,22 @@ background: linear-gradient(to right, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, F
 }
 
 .myData{
-    top: 30%;
+    top: 25%;
     left: 35%;
     width: 80em;
     height: 18em;
     margin-top: -9em;
     margin-left: -15em;
-    position: fixed;
+    position: absolute;
 }
 
 .myTableData td{
     font-size: 24px;
-    border-spacing: 5px;
+    border-spacing: 2px;
     border: 1px solid;
     border-width: 2px;
-    padding: 15px;
+    padding: 10px;
+    color: rgb(0, 0, 0);
 }
 
 .addNewCarBtn{
