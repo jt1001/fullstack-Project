@@ -37,4 +37,26 @@ The following databases were using in this project:
 
 The H2 database was created using the car-schema.sql file and the car-data.sql to automatically populate the fields to be able to carry out testing.
 
-# Back-End Testing:
+# Back-End and Testing:
+Created using Java in a Spring Boot Framework with the following created:
+-Car Entity: stores the variables that make a car object
+-Car Controller
+-Car Service
+-car Interface
+
+The CRUD functionality was stored in these classes which used mappings to allow external services to connect to the API.
+
+Testing:
+
+For testing I used:
+
+-JUnit = For integration testing which allowed me to test if the HTTP endpoints were working with my CRUD based HTTP requests
+-MockMVC = used to act as an external service like Postman by fulfilling the mock HTTP requests.
+-Mockito = For unit testing, this helps create mock data so we can test the responses that we are expecting to receive.
+-ObjectMapper = this converts the received response into JSON which allows us to be able to use the API request JSON format.
+
+Over testing coverage came up to 94.1%
+
+# Front-End and Testing:
+The front end is the user interface which was built using HTML, JavaScript and CSS.
+HTML and CSS was used to cerate the design of the user interface while Javascript was used to create the functionality of the interface which included allowing the interface to interact with the backend.
